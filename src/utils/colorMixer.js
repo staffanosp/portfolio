@@ -28,8 +28,10 @@ const getScreenSize = () => ({ w: window.innerWidth, h: window.innerHeight });
 const updateColors = (e) => {
   const hasEvent = !!e;
 
-  const defaultX = 0.65;
-  const defaultY = 0.45;
+  // const defaultX = 0.65;
+  // const defaultY = 0.45;
+  const defaultX = Math.random();
+  const defaultY = Math.random();
 
   const mousePosRatio = {
     x: hasEvent ? e.clientX / screenSize.w : defaultX,

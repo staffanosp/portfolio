@@ -207,7 +207,7 @@ h1 {
 
 .line-echo {
   z-index: -10;
-  --stroke-width: 1;
+  --stroke-width: 1.5;
   scale: attr(data-line-echo-factor);
   opacity: 0.3;
 }
