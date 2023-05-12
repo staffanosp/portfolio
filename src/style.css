@@ -209,27 +209,27 @@ h1 {
   z-index: -10;
   --stroke-width: 1;
   scale: attr(data-line-echo-factor);
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 .line-echo-01 {
-  --factor: 1.5;
-  scale: var(--factor);
+  --scale-factor: 1.5;
+  scale: var(--scale-factor);
 }
 
 .line-echo-02 {
-  --factor: 2;
-  scale: var(--factor);
+  --scale-factor: 2;
+  scale: var(--scale-factor);
 }
 
 .line-echo-03 {
   display: none;
-  --factor: 2.5;
-  scale: var(--factor);
+  --scale-factor: 2.5;
+  scale: var(--scale-factor);
 }
 
 .line-echo svg {
-  stroke-width: calc(1 / var(--factor));
+  stroke-width: calc(var(--stroke-width) / var(--scale-factor));
 }
 
 /* ------------------------------------------------------------------------- */

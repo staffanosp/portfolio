@@ -17,6 +17,7 @@ function startParallax() {
       const parallaxFactor = Number(
         parallaxWrapperElement.getAttribute("data-parallax-factor")
       );
+
       const parallaxElement = parallaxWrapperElement.firstElementChild;
       const parallaxElementRect = parallaxElement.getBoundingClientRect();
 
@@ -49,6 +50,7 @@ function startParallax() {
     }
   }
 
+  // Event based solution
   addEventListener("scroll", () => {
     requestAnimationFrame(() => updateParallaxPositions());
   });
@@ -57,11 +59,15 @@ function startParallax() {
     requestAnimationFrame(() => updateParallaxPositions());
   });
 
-  function frame() {
-    updateParallaxPositions();
-    requestAnimationFrame(frame);
-  }
+  //frame based solution
+  // function frame() {
+  //   updateParallaxPositions();
+  //   requestAnimationFrame(frame);
+  // }
   // frame();
+
+  //init
+  updateParallaxPositions();
 }
 
 export { startParallax };
