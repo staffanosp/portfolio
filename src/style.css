@@ -41,6 +41,8 @@
   --color04: hsl(339.659 50% 45.0056%);
   --color05: hsl(339.659 50% 70.0056%); */
 
+  --img-blending-mode: screen;
+
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
@@ -161,7 +163,7 @@ h1 {
 .about-profile-image-container {
   overflow: hidden;
   border-radius: 100%;
-  mix-blend-mode: screen;
+  mix-blend-mode: var(--img-blending-mode);
 }
 
 .about-profile-image-container img {
