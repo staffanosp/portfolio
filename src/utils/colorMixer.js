@@ -123,26 +123,26 @@ const toggleActive = (e) => {
   if (isActive) updateColors(e);
 };
 
-//  event listeners
-addEventListener("resize", () => (screenSize = getScreenSize()));
-addEventListener("click", toggleActive);
-addEventListener("mousemove", (e) => {
-  if (!isActive) return;
-
-  //throttle the updates, no need to update faster than the frame rate
-  if (!isUpdating) {
-    requestAnimationFrame(() => {
-      updateColors(e);
-      isUpdating = false;
-    });
-  }
-  isUpdating = true;
-});
-
 //  init
 let screenSize, isActive, isUpdating;
 
 function startColorMixer() {
+  //  event listeners
+  addEventListener("resize", () => (screenSize = getScreenSize()));
+  addEventListener("click", toggleActive);
+  addEventListener("mousemove", (e) => {
+    if (!isActive) return;
+
+    //throttle the updates, no need to update faster than the frame rate
+    if (!isUpdating) {
+      requestAnimationFrame(() => {
+        updateColors(e);
+        isUpdating = false;
+      });
+    }
+    isUpdating = true;
+  });
+
   screenSize = getScreenSize();
   isUpdating = false;
   setIsActive(false);

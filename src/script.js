@@ -10,4 +10,4 @@ document
   );
 
 startParallax();
-startColorMixer();
+// startColorMixer();

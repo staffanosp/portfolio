@@ -11,7 +11,11 @@
   <body>
     <main>
       <div id="wrapper">
-        <article class="section section--margin grid-12" data-parallax-anchor>
+        <!-- Hero -->
+        <article
+          class="section section--margin section--margin grid-12"
+          data-parallax-anchor
+        >
           <div class="logo-container">
             <svg
               viewBox="0 0 400 400"
@@ -85,7 +89,8 @@
           </div>
         </article>
 
-        <article class="section grid-12" data-parallax-anchor>
+        <!-- Profile -->
+        <article class="section section--margin grid-12" data-parallax-anchor>
           <div class="about-profile-image-wrapper">
             <div class="about-profile-image-container">
               <img
@@ -151,24 +156,167 @@
           <div class="about-text-container">
             <div class="parallax-wrapper" data-parallax-factor="1.2">
               <div class="about-text-layout">
-                <p class="emoji grid-item-center">👋🏻</p>
-                <h1>I'm Staffan Ösp</h1>
-                <div class="grid-item-center">-></div>
-                <p>
-                  Software Design @
-                  <a href="https://www.xlnaudio.com">XLN&nbsp;Audio</a>
+                <div class="about-list_layout">
+                  <p class="emoji grid-item-center">👋🏻</p>
+                  <h2>I'm Staffan Ösp</h2>
+                </div>
+                <p class="about-text-layout__body">
+                  I found my place somewhere in-between tech and creativity from
+                  a young age. <br />From fiddling with Lego. Programming Basic
+                  on my brother’s Commodore 128. Html in the 90s with our first
+                  dial-up modem. Through Flash — Damn, I ❤️ Flash!<br />Then
+                  music production took over more and more of my time.
+                  <br />Fast forward, and I somehow ended up as product designer
+                  (/ developer at times) at XLN Audio. <br />Right now, I’m sort
+                  of closing the circle, back to web development after some 20
+                  years, by going to the front end developer program @ Hyper
+                  Island.
                 </p>
-                <div class="grid-item-center">-></div>
-                <p>
-                  Front End Developer Student @
-                  <a href="https://www.hyperisland.com">Hyper&nbsp;Island</a>
-                </p>
+
+                <div class="about-list_layout">
+                  <div class="grid-item-center">-></div>
+
+                  <p>
+                    Music Production @
+                    <a target="_blank" href="https://www.kungenochhertigen.se"
+                      >Kungen & Hertigen</a
+                    >
+                  </p>
+                  <div class="grid-item-center">-></div>
+
+                  <p>
+                    Software Design @
+                    <a target="_blank" href="https://www.xlnaudio.com"
+                      >XLN&nbsp;Audio</a
+                    >
+                  </p>
+                  <div class="grid-item-center">-></div>
+                  <p>
+                    Front End Developer Student @
+                    <a target="_blank" href="https://www.hyperisland.com"
+                      >Hyper&nbsp;Island</a
+                    >
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </article>
+        <!-- Projects -->
         <article class="section grid-12">
-          <div class="div links-container">
+          <div class="projects-title"><h2>Projects</h2></div>
+
+          <div class="projects-container">
+            <div class="projects-item">
+              <h3>Todo list (fullstack)</h3>
+              <div class="projects-item__img">
+                <img
+                  src="./assets/images/project01-img.jpg"
+                  alt=">Todo list (fullstack) image"
+                />
+              </div>
+              <div class="projects-item__tags_container">
+                <div class="projects-item__tags_container__tag">Express.js</div>
+                <div class="projects-item__tags_container__tag">JWT</div>
+                <div class="projects-item__tags_container__tag">React</div>
+                <div class="projects-item__tags_container__tag">SWR</div>
+                <div class="projects-item__tags_container__tag">
+                  Optimistic UI
+                </div>
+                <div class="projects-item__tags_container__tag">Rest API</div>
+              </div>
+              <div class="projects-item__description">
+                <p>The brief was to make a full stack todo list app.</p>
+                <ul>
+                  <li>The backend runs node and express.js.</li>
+                  <li>
+                    The frontend is built in React and uses SWR for fetching
+                  </li>
+                  <li>
+                    We try to follow the best practices of “Optimistic UI” in
+                    order to make the UI feel snappy and delightful.
+                  </li>
+                  <li>
+                    The auth is built from scratch utilising JSON Web Tokens
+                    (JWT)
+                  </li>
+                </ul>
+              </div>
+              <div class="projects-item__cta">-> Demo upon request</div>
+            </div>
+            <div class="projects-item">
+              <h3>Financial Dashboard</h3>
+              <div class="projects-item__img">
+                <img
+                  src="./assets/images/project02-img.jpg"
+                  alt=">Financial Dashboard image"
+                />
+              </div>
+              <div class="projects-item__tags_container">
+                <div class="projects-item__tags_container__tag">React</div>
+              </div>
+              <div class="projects-item__description">
+                <p>
+                  The brief was to make a React app from a given Figma design.
+                </p>
+                <ul>
+                  <li>First React project</li>
+
+                  <li>All custom animations, written from scratch</li>
+                </ul>
+              </div>
+              <div class="projects-item__cta">
+                ->
+                <a
+                  href="https://cheery-brigadeiros-8234f7.netlify.app"
+                  target="_blank"
+                  >Live demo</a
+                >
+              </div>
+            </div>
+            <div class="projects-item">
+              <h3>“Guess the flag”</h3>
+              <div class="projects-item__img">
+                <img
+                  src="./assets/images/project03-img.jpg"
+                  alt=">“Guess the flag” image"
+                />
+              </div>
+              <div class="projects-item__tags_container">
+                <div class="projects-item__tags_container__tag">
+                  <em>Vanilla</em> JS
+                </div>
+              </div>
+              <div class="projects-item__description">
+                <p>
+                  The brief was to make a game that use <em>some</em> external
+                  API.
+                </p>
+                <ul>
+                  <li>All custom animations</li>
+
+                  <li>
+                    Score function that gives you more points the faster you
+                    answer
+                  </li>
+
+                  <li>Data is fetched from restcountries.com</li>
+                </ul>
+              </div>
+              <div class="projects-item__cta">
+                ->
+                <a
+                  href="https://curious-salamander-607f92.netlify.app"
+                  target="_blank"
+                  >Live demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- External Links -->
+        <article class="section grid-12">
+          <div class="external_links-container">
             <a href="https://www.linkedin.com/in/staffan-osp/">linkedin</a>
             <a href="https://github.com/staffanosp">github</a>
             <a href="mailto:staffan@kungenochhertigen.se">mail</a>
