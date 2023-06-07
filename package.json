@@ -5,8 +5,6 @@
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -17,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/staffanosp/portfolio/issues"
   },
-  "homepage": "https://github.com/staffanosp/portfolio#readme",
-  "dependencies": {
-    "parcel": "^2.8.3"
-  }
+  "homepage": "https://github.com/staffanosp/portfolio#readme"
 }
