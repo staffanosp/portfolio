@@ -1,6 +1,35 @@
 const lerp = (x, v0, v1) => v0 + x * (v1 - v0);
 
-const HSLToHex = (h, s, l) => {
+const luminance = (r, g, b) => {
+  var a = [r, g, b].map(function (v) {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+};
+
+const colorContrast = (color1luminance, color2luminance) => {
+  return color1luminance > color2luminance
+    ? (color2luminance + 0.05) / (color1luminance + 0.05)
+    : (color1luminance + 0.05) / (color2luminance + 0.05);
+};
+
+const hslToRgb = (h, s, l) => {
+  s /= 100;
+  l /= 100;
+  const k = (n) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n) =>
+    l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+
+  return {
+    r: 255 * f(0),
+    g: 255 * f(8),
+    b: 255 * f(4),
+  };
+};
+
+const hslToHex = (h, s, l) => {
   s /= 100;
   l /= 100;
 
@@ -36,6 +65,7 @@ const HSLToHex = (h, s, l) => {
     g = 0;
     b = x;
   }
+
   // Having obtained RGB, convert channels to hex
   r = Math.round((r + m) * 255)
     .toString(16)
@@ -56,6 +86,27 @@ const colorToCssHsl = ({ hue, saturation, lightness, alpha }) =>
   })`;
 
 const colorToHex = ({ hue, saturation, lightness }) =>
-  HSLToHex(hue, saturation, lightness);
+  hslToHex(hue, saturation, lightness);
 
-export { lerp, colorToCssHsl, colorToHex };
+const colorToRgb = ({ hue, saturation, lightness }) =>
+  hslToRgb(hue, saturation, lightness);
+
+const colorsContrast = (color01, color02) => {
+  const color01rgb = hslToRgb(
+    color01.hue,
+    color01.saturation,
+    color01.lightness
+  );
+  const color02rgb = hslToRgb(
+    color02.hue,
+    color02.saturation,
+    color02.lightness
+  );
+
+  const color01luminance = luminance(color01rgb.r, color01rgb.g, color01rgb.b);
+  const color02luminance = luminance(color02rgb.r, color02rgb.g, color02rgb.b);
+
+  return colorContrast(color01luminance, color02luminance);
+};
+
+export { lerp, colorToCssHsl, colorToHex, colorToRgb, colorsContrast };

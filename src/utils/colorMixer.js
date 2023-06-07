@@ -1,4 +1,10 @@
-import { lerp, colorToCssHsl, colorToHex } from "./utils.js";
+import {
+  lerp,
+  colorToCssHsl,
+  colorToHex,
+  colorToRgb,
+  colorsContrast,
+} from "./utils.js";
 
 //  elements
 const rootEl = document.documentElement;
@@ -28,10 +34,10 @@ const getScreenSize = () => ({ w: window.innerWidth, h: window.innerHeight });
 const updateColors = (e) => {
   const hasEvent = !!e;
 
-  // const defaultX = 0.65;
-  // const defaultY = 0.45;
-  const defaultX = Math.random();
-  const defaultY = Math.random();
+  const defaultX = 0.65;
+  const defaultY = 0.45;
+  // const defaultX = Math.random();
+  // const defaultY = Math.random();
 
   const mousePosRatio = {
     x: hasEvent ? e.clientX / screenSize.w : defaultX,
@@ -71,8 +77,10 @@ const updateColors = (e) => {
     },
   };
 
+  console.log(colorsContrast(colors.color01, colors.color02));
+
   const blendingMode = mousePosRatio.y > 0.5 ? "multiply" : "screen";
-  console.log(blendingMode);
+  // console.log(blendingMode);
   //  update DOM
   rootEl.style.setProperty("--color01", colorToCssHsl(colors.color01));
   rootEl.style.setProperty("--color02", colorToCssHsl(colors.color02));
@@ -95,6 +103,9 @@ const updateColors = (e) => {
   // colorInspectColor03LabelEl.innerHTML = colorToHex(colors.color03);
   // colorInspectColor04LabelEl.innerHTML = colorToHex(colors.color04);
   // colorInspectColor05LabelEl.innerHTML = colorToHex(colors.color05);
+
+  // console.log(colorToHex(colors.color01));
+  // console.log(colorToRgb(colors.color01));
 };
 
 const setIsActive = (v) => {
